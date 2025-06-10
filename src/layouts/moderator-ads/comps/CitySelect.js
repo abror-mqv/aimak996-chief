@@ -1,14 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   ToggleButtonGroup,
   ToggleButton,
   Typography
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 
 const CitySelect = ({ cities, selectedCity, onCityChange }) => {
   const { t } = useTranslation();
+  
   const handleCityChange = (event, newCityId) => {
     if (newCityId !== null) {
       onCityChange(newCityId);
@@ -18,7 +19,7 @@ const CitySelect = ({ cities, selectedCity, onCityChange }) => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
       <Typography variant="subtitle1" sx={{ mr: 1 }}>
-        {t('common.city')}
+        {t('filters.selectCity')}:
       </Typography>
       <ToggleButtonGroup
         value={selectedCity}
@@ -42,6 +43,9 @@ const CitySelect = ({ cities, selectedCity, onCityChange }) => {
           }
         }}
       >
+        {/* <ToggleButton key={0} value={0}>
+          {t('filters.allCities')}
+        </ToggleButton> */}
         {cities.map((city) => (
           <ToggleButton key={city.id} value={city.id}>
             {city.name}
@@ -52,4 +56,4 @@ const CitySelect = ({ cities, selectedCity, onCityChange }) => {
   );
 };
 
-export default CitySelect;
+export default CitySelect; 

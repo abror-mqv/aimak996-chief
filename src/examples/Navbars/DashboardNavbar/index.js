@@ -27,10 +27,12 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
+import { Button } from "@mui/material";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDInput from "components/MDInput";
+import MDTypography from "components/MDTypography";
 
 // Material Dashboard 2 React example components
 import Breadcrumbs from "examples/Breadcrumbs";
@@ -53,8 +55,11 @@ import {
   setOpenConfigurator,
 } from "context";
 
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useTranslation } from "react-i18next";
+
 function DashboardNavbar({ absolute, light, isMini }) {
-  const [navbarType, setNavbarType] = useState();
+  const [navbarType, setNavbarType] = useState("sticky");
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
   const [openMenu, setOpenMenu] = useState(false);
@@ -91,6 +96,11 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  };
+
   // Render the notifications menu
   const renderMenu = () => (
     <Menu
@@ -122,6 +132,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
       return colorValue;
     },
   });
+  const { t } = useTranslation();
 
   return (
     <AppBar
@@ -139,11 +150,22 @@ function DashboardNavbar({ absolute, light, isMini }) {
               <MDInput label="Search here" />
             </MDBox>
             <MDBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in/basic">
-                <IconButton sx={navbarIconButton} size="small" disableRipple>
-                  <Icon sx={iconsStyle}>account_circle</Icon>
-                </IconButton>
-              </Link>
+              <IconButton
+                size="small"
+                color="inherit"
+                sx={navbarIconButton}
+                onClick={handleLogout}
+              >
+                <LogoutIcon />
+                <MDTypography
+                  variant="button"
+                  fontWeight="medium"
+                  color={light ? "white" : "dark"}
+                  ml={1}
+                >
+                  {t("Logout")}
+                </MDTypography>
+              </IconButton>
               <IconButton
                 size="small"
                 disableRipple

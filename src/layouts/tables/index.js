@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
+import { useTranslation } from 'react-i18next';
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -19,6 +20,7 @@ import { BASE_URL } from "constants/crud";
 import EditAdModal from "components/EditAdModal";
 
 function Tables() {
+  const { t } = useTranslation();
   const [ads, setAds] = useState([])
   const [loading, setLoading] = useState(false)
   const [citiesList, setCitiesList] = useState([])
@@ -82,7 +84,7 @@ function Tables() {
   const [currentAd, setCurrentAd] = useState(
     {
           id: 0,
-          description: "текст",
+          description: t('text'),
           contact_phone: "+996",
           category_id: 0,
           city_ids: [],
@@ -107,11 +109,11 @@ function Tables() {
 
         </div>
         {
-          (selectedCity === 0) ? <></> : <>Все объявления по городу</>
+          (selectedCity === 0) ? <></> : <>{t('common.allAdsInCity')}</>
         }
         
         {
-          (selectedCity === 0) ? <p>Выберите город</p> : <Feed ads={ads} loading={loading} setCurrentAd={setCurrentAd} onOpen={()=>{
+          (selectedCity === 0) ? <p>{t('common.selectCity')}</p> : <Feed ads={ads} loading={loading} setCurrentAd={setCurrentAd} onOpen={()=>{
             setModalOpen(true)
           }}/>
         }        
@@ -121,7 +123,6 @@ function Tables() {
         open={modalOpen}
         handleClose={(shouldReload) => {
           setModalOpen(false);
-          // if (shouldReload) fetchAds(); // обновить список
         }}
         ad={currentAd}
         categories={categories}

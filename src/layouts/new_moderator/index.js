@@ -1,5 +1,6 @@
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
+import { useTranslation } from 'react-i18next';
 
 // Material Dashboard 2 React examples
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -9,6 +10,7 @@ import { POST_AD } from "constants/crud";
 import { POST_NEW_MODERATOR } from "constants/crud";
 
 function NewModerator() {
+  const { t } = useTranslation();
 
   const handleSubmit = (formData) => {
     const token = localStorage.getItem("authToken")
@@ -18,29 +20,23 @@ function NewModerator() {
       }
     })
     .then(response => {
-      alert('Модератор создан', response.data);
+      alert(t('common.moderatorCreated'), response.data);
     })
     .catch(error => {
-      console.error('Ошибка:', error);
+      console.error(t('common.error'), error);
       if (error.response) {
-        console.error('Данные ошибки:', error.response.data);
-        console.error('Статус ошибки:', error.response.status);
+        console.error(t('common.errorData'), error.response.data);
+        console.error(t('common.errorStatus'), error.response.status);
       }
     });
   };
 
-  
-
-
-
   return (
     <DashboardLayout>
-     
       <MDBox mt={0}>
-        Новый модератор
+        {t('common.newModerator')}
         <AdvertisementForm onSubmit={handleSubmit} />
       </MDBox>
-     
     </DashboardLayout>
   );
 }

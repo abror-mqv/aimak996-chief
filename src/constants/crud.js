@@ -1,4 +1,6 @@
 export const BASE_URL = "http://5.59.233.32:8080"
+// export const BASE_URL = "http://127.0.0.1:8000"
+
 
 export const POST_REGISTER = `${BASE_URL}/users/register/`
 export const POST_LOGIN = `${BASE_URL}/users/login/`
@@ -17,7 +19,9 @@ export const GET_ALL_USERS = `${BASE_URL}/users/admin/moderators/`
 
 export const GET_STATS_MONTH = `${BASE_URL}/users/admin/stats/month/`
 export const GET_STATS_WEEK = `${BASE_URL}/users/admin/stats/week/`
-export const GET_STATS_DAY = `${BASE_URL}/users/admin/stats/day/`
+export const GET_STATS_DAY = `${BASE_URL}/users/admin/stats/today/`
 
 export const EDIT_AD =  `${BASE_URL}/ads/edit`
+
+export const GET_MODERATOR_ADS = `${BASE_URL}/ads/by_moderator/`
 

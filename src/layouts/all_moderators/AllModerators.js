@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { GET_ALL_USERS } from 'constants/crud';
 import ModeratorsTable from './сomponents/ModersTable';
 import EditModeratorModal from './сomponents/EditModal';
 
 function AllModerators() {
+    const { t } = useTranslation();
     const [moderators, setModerators] = useState([])
     const [editingModerator, setEditingModerator] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,20 +62,20 @@ function AllModerators() {
         };
 
     const handleDelete = (moderatorId) => {
-        if (window.confirm('Вы уверены, что хотите удалить этого модератора?')) {
-        setModerators(moderators.filter(m => m.id !== moderatorId));
-        console.log('Удалить модератора с ID:', moderatorId);
-        const token = localStorage.getItem("authToken")
+        if (window.confirm(t('common.confirmDeleteModerator'))) {
+            setModerators(moderators.filter(m => m.id !== moderatorId));
+            console.log(t('common.deletingModeratorWithId'), moderatorId);
+            const token = localStorage.getItem("authToken")
 
-        axios.delete(`${GET_ALL_USERS}${moderatorId}/delete/`, {
-            headers: {
-                Authorization: `Token ${token}`
-            }
-        }).then(res=>{
-            console.log(res.data)
-        }).catch(err=>{
-            console.log(err)
-        })
+            axios.delete(`${GET_ALL_USERS}${moderatorId}/delete/`, {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
+            }).then(res=>{
+                console.log(res.data)
+            }).catch(err=>{
+                console.log(err)
+            })
         }
     };
 
@@ -81,7 +83,7 @@ function AllModerators() {
 
     return (
             <DashboardLayout>
-                Все модераторы
+                {t('common.allModerators')}
 
                 <ModeratorsTable 
                     moderators={moderators} 

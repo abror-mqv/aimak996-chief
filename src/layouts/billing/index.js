@@ -1,4 +1,5 @@
 import Grid from "@mui/material/Grid";
+import { useTranslation } from 'react-i18next';
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -21,6 +22,7 @@ import { POST_AD } from "constants/crud";
 import { useEffect } from "react";
 
 function Billing() {
+  const { t } = useTranslation();
 
   const handleSubmit = (formData) => {
     const token = localStorage.getItem("authToken")
@@ -42,18 +44,12 @@ function Billing() {
     });
   };
 
-  
-
-
-
   return (
     <DashboardLayout>
-     
       <MDBox mt={0}>
-        Новое объявление
+        {t('newAd.title')}
         <AdvertisementForm onSubmit={handleSubmit} />
       </MDBox>
-     
     </DashboardLayout>
   );
 }

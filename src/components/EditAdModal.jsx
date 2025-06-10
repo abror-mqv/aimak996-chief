@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import {
   Modal,
   Box,
@@ -33,6 +34,7 @@ const style = {
 };
 
 const EditAdModal = ({ open, handleClose, ad, categories, cities, token }) => {
+  const { t } = useTranslation();
   const [description, setDescription] = useState(ad.description || "");
   const [contactPhone, setContactPhone] = useState(ad.contact_phone || "");
   const [selectedCategory, setSelectedCategory] = useState(ad.category_id || "");
@@ -56,9 +58,9 @@ const EditAdModal = ({ open, handleClose, ad, categories, cities, token }) => {
         },
       }).then(res=>{
         console.log(res)
-        alert("Объявление обновилось! Перезагрузите страницу")
+        alert(t('ad.updateSuccess'))
       });
-      handleClose(true); // true = нужно обновить список
+      handleClose(true);
     } catch (error) {
       console.error("Ошибка при обновлении:", error);
     }
@@ -70,7 +72,6 @@ const EditAdModal = ({ open, handleClose, ad, categories, cities, token }) => {
 
   useEffect(() => {
     console.log(ad)
-
     setDescription(ad.description || "");
     setContactPhone(ad.contact_phone || "");
     setSelectedCategory(ad.category_id || "");
@@ -82,12 +83,12 @@ const EditAdModal = ({ open, handleClose, ad, categories, cities, token }) => {
     <Modal open={open} onClose={() => handleClose(false)}>
       <Box sx={style}>
         <Typography variant="h6" mb={2}>
-          Редактирование объявления
+          {t('ad.edit')}
         </Typography>
 
         <TextField
           fullWidth
-          label="Описание"
+          label={t('ad.description')}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           multiline
@@ -97,7 +98,7 @@ const EditAdModal = ({ open, handleClose, ad, categories, cities, token }) => {
 
         <TextField
           fullWidth
-          label="Телефон"
+          label={t('ad.phone')}
           value={contactPhone}
           onChange={(e) => setContactPhone(e.target.value)}
           sx={{ mb: 2 }}
@@ -109,17 +110,6 @@ const EditAdModal = ({ open, handleClose, ad, categories, cities, token }) => {
             selectedCategory={selectedCategory} 
             onCategoryChange={setSelectedCategory} 
           />
-          {/* <Select
-            value={selectedCategory}
-            label="Категория"
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            {categories.map((cat) => (
-              <MenuItem key={cat.id} value={cat.id}>
-                {cat.name}
-              </MenuItem>
-            ))}
-          </Select> */}
         </FormControl>
 
         <FormControl fullWidth sx={{ mb: 2 }}>
@@ -128,33 +118,14 @@ const EditAdModal = ({ open, handleClose, ad, categories, cities, token }) => {
             selectedCities={selectedCities}
             onCitiesChange={setSelectedCities}
           />
-          {/* <Select
-            multiple
-            value={selectedCities}
-            onChange={(e) => setSelectedCities(e.target.value)}
-            input={<OutlinedInput label="Города" />}
-            renderValue={(selected) =>
-              cities
-                .filter((city) => selected.includes(city.id))
-                .map((c) => c.name)
-                .join(", ")
-            }
-          >
-            {cities.map((city) => (
-              <MenuItem key={city.id} value={city.id}>
-                <Checkbox checked={selectedCities.includes(city.id)} />
-                <ListItemText primary={city.name} />
-              </MenuItem>
-            ))}
-          </Select> */}
         </FormControl>
 
         <Box display="flex" justifyContent="flex-end">
           <Button onClick={() => handleClose(false)} sx={{ mr: 2 }}>
-            Отмена
+            {t('ad.cancel')}
           </Button>
           <Button variant="contained" onClick={handleSave} style={{color: "#fff"}}>
-            Сохранить
+            {t('ad.save')}
           </Button>
         </Box>
       </Box>

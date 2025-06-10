@@ -8,7 +8,7 @@ import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
 import theme from "assets/theme";
 import themeDark from "assets/theme-dark";
-import routes from "routes";
+import RoutesConfig from "routes";
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
@@ -26,8 +26,9 @@ export default function App() {
     whiteSidenav,
     darkMode,
   } = controller;
-  const [onMouseEnter, setOnMouseEnter]   = useState(false);
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
+  const routes = RoutesConfig();
 
   // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {

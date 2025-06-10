@@ -1,0 +1,102 @@
+{
+  "sidebar": {
+    "analytics": "Аналитика",
+    "allAds": "Все объявления",
+    "myAds": "Мои объявления",
+    "newAd": "Новое объявление",
+    "moderators": "Модераторы",
+    "newModerator": "Новый модератор",
+    "search": "Поиск",
+    "login": "Войти",
+    "moderatorAds": "Публикации модератора",
+    "pushNotifications": "Push-уведомления"
+  },
+  "language": {
+    "ru": "Русский",
+    "ky": "Кыргызча"
+  },
+  "search": {
+    "title": "Поиск объявлений",
+    "placeholder": "Введите текст для поиска...",
+    "minLength": "Минимальная длина поиска - 3 символа",
+    "noResults": "Нет результатов"
+  },
+  "filters": {
+    "selectCity": "Выберите город",
+    "allCities": "Все города",
+    "selectCategory": "Выберите категорию",
+    "allCategories": "Все категории",
+    "selected": "Выбрано",
+    "selectAll": "Выбрать все",
+    "deselectAll": "Снять все"
+  },
+  "ad": {
+    "edit": "Редактирование объявления",
+    "delete": "Удалить",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "description": "Описание",
+    "phone": "Телефон",
+    "category": "Категория",
+    "cities": "Города",
+    "status": "Статус",
+    "date": "Дата",
+    "updateSuccess": "Объявление обновлено! Перезагрузите страницу",
+    "deleteConfirmTitle": "Удаление объявления",
+    "deleteConfirmMessage": "Вы уверены, что хотите удалить это объявление?"
+  },
+  "auth": {
+    "yourName": "Ваше имя",
+    "yourPhone": "Ваш номер",
+    "anonymous": "Аноним",
+    "changeUser": "Сменить пользователя",
+    "login": "Вход",
+    "password": "Пароль",
+    "hidePassword": "скрыть пароль",
+    "showPassword": "показать пароль",
+    "welcome": "Добро пожаловать!",
+    "loginSuccess": "Вы успешно вошли в систему",
+    "continue": "Продолжить",
+    "moderatorRegistration": "Регистрация модератора",
+    "register": "Регистрация",
+    "resetPassword": "Сброс пароля",
+    "resetPasswordEmailInfo": "Вы получите письмо в течение 60 секунд",
+    "email": "Email",
+    "reset": "Сбросить",
+    "logout": "Выйти"
+  },
+  "common": {
+    "text": "текст",
+    "allAdsInCity": "Все объявления по городу",
+    "selectCity": "Выберите город",
+    "allModerators": "Все модераторы",
+    "confirmDeleteModerator": "Вы уверены, что хотите удалить этого модератора?",
+    "deletingModeratorWithId": "Удалить модератора с ID",
+    "newModerator": "Новый модератор",
+    "moderatorCreated": "Модератор создан",
+    "error": "Ошибка",
+    "errorData": "Данные ошибки",
+    "errorStatus": "Статус ошибки",
+    "contactPhone": "Контактный телефон",
+    "name": "Имя",
+    "addModerator": "Добавить модератора",
+    "city": "Город",
+    "cancel": "Отмена"
+  },
+  "newAd": {
+    "title": "Новое объявление",
+    "city_select": "Выберите город",
+    "select_all": "Выбрать все",
+    "description": "Описание",
+    "images": "Изображения (максимум 5)",
+    "images_loaded": "изображений загружено",
+    "submit": "Опубликовать объявление"
+  },
+  "dashboard": {
+    "title": "Аналитика модераторов",
+    "subtitle": "Количество обработанных публикаций по городам",
+    "for_today": "За сегодня",
+    "for_week": "За неделю",
+    "for_month": "За месяц"
+  }
+} 

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 // react-router-dom components
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 // @mui material components
 import Card from "@mui/material/Card";
-
+import LogoutIcon from '@mui/icons-material/Logout';
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -40,6 +41,7 @@ import { POST_LOGIN } from "constants/crud";
 import { GET_ME } from "constants/crud";
 
 function Basic() {
+  const { t } = useTranslation();
   const [me, setMe] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const [login, setLogin] = useState("")
@@ -78,15 +80,29 @@ function Basic() {
     })
   }, [])
 
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    window.location.reload();
+  };
+
   const Useriew = () => {
     return(
       <MDBox>
         <MDTypography variant="h6" fontWeight="medium" color="white" mt={1}>
-              Ваше имя: {me?.name}
+              {t('auth.yourName')}: {me?.name}
         </MDTypography>
         <MDTypography variant="h6" fontWeight="medium" color="white" mt={1}>
-              Ваш номер: {me?.phone}
+              {t('auth.yourPhone')}: {me?.phone}
         </MDTypography>
+        <MDButton
+          variant="text"
+          color="white"
+          onClick={handleLogout}
+          sx={{ mt: 1, display: 'flex', alignItems: 'center', gap: 1 }}
+        >
+          <LogoutIcon />
+          {t('auth.logout')}
+        </MDButton>
       </MDBox>
     )
   }
@@ -106,77 +122,66 @@ function Basic() {
           textAlign="left"
         >
           <MDBox>
-            {
-              me?<Useriew/>: <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-              Аноним
-            </MDTypography>
-            }
-           
+            {me ? <Useriew/> : <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+              {t('auth.anonymous')}
+            </MDTypography>}
           </MDBox>
-          {
-            me?<MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-            Сменить пользователя 
-          </MDTypography>:<MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-            Вход 
-          </MDTypography>
-          }
-          
-         
+          {!me && <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+            {t('auth.login')}
+          </MDTypography>}
         </MDBox>
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
-                          <CustomPhoneInput  value={login} onChange={setLogin} default_country="kg" />
-                        </MDBox>
-            
-            
-            <FormControl sx={{ mt: 1, width: "100%"}} variant="outlined">
-                              <InputLabel htmlFor="outlined-adornment-password" >Пароль</InputLabel>
-                              <OutlinedInput
-                                id="outlined-adornment-password"
-                                type={showPassword ? 'text' : 'password'}
-                                value={password}
-                                onChange={(e)=>{
-                                  setPassword(e.target.value)
-                                }}
-                                endAdornment={
-                                  <InputAdornment position="end">
-                                    <IconButton
-                                      aria-label={
-                                        showPassword ? 'hide the password' : 'display the password'
-                                      }
-                                      onClick={handleClickShowPassword}
-                                      edge="end"
-                                    >
-                                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                                    </IconButton>
-                                  </InputAdornment>
-                                }
-                                label="Password"
-                              />
-                        </FormControl>
+        {!me && (
+          <MDBox pt={4} pb={3} px={3}>
+            <MDBox component="form" role="form">
+              <MDBox mb={2}>
+                <CustomPhoneInput value={login} onChange={setLogin} default_country="kg" />
+              </MDBox>
+              
+              <FormControl sx={{ mt: 1, width: "100%"}} variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-password" >{t('auth.password')}</InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e)=>{
+                    setPassword(e.target.value)
+                  }}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={
+                          showPassword ? t('auth.hidePassword') : t('auth.showPassword')
+                        }
+                        onClick={handleClickShowPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label={t('auth.password')}
+                />
+              </FormControl>
 
-
-           
-            <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth onClick={()=>{
-                submit()
-              }}>
-                Войти
-              </MDButton>
+              <MDBox mt={4} mb={1}>
+                <MDButton variant="gradient" color="info" fullWidth onClick={()=>{
+                  submit()
+                }}>
+                  {t('auth.login')}
+                </MDButton>
+              </MDBox>
             </MDBox>
-            
           </MDBox>
-        </MDBox>
+        )}
       </Card>
       <Dialog open={showWelcomeModal} onClose={handleCloseWelcomeModal}>
-        <DialogTitle>Добро пожаловать!</DialogTitle>
+        <DialogTitle>{t('auth.welcome')}</DialogTitle>
         <DialogContent>
-          <MDTypography>Вы успешно вошли в систему.</MDTypography>
+          <MDTypography>{t('auth.loginSuccess')}</MDTypography>
         </DialogContent>
         <DialogActions>
           <MDButton onClick={handleCloseWelcomeModal} color="info">
-            Продолжить
+            {t('auth.continue')}
           </MDButton>
         </DialogActions>
       </Dialog>

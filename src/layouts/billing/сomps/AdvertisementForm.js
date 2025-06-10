@@ -17,7 +17,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import { GET_CATEGORIES } from 'constants/crud';
-
+import { useTranslation } from 'react-i18next';
 import "./AdForm.scss"
 import MDButton from 'components/MDButton';
 import CitySelect from 'layouts/tables/comps/CitySelect';
@@ -26,7 +26,9 @@ import MultiCitySelect from './MultipleCitySelect';
 
 
 
+
 const AdvertisementForm = ({ onSubmit }) => {
+  const { t } = useTranslation();
   const [citiesList, setCitiesList] = useState([])
   const [categories, setCategories] = useState([])
   const [formData, setFormData] = useState({
@@ -155,7 +157,7 @@ const AdvertisementForm = ({ onSubmit }) => {
             onCitiesChange={handleChangeCity}
           />          
           <TextField
-            label="Описание"
+            label={t('newAd.description')}
             name="description"
             value={formData.description}
             onChange={handleChange}
@@ -165,7 +167,7 @@ const AdvertisementForm = ({ onSubmit }) => {
             fullWidth
           />          
           <TextField
-            label="Контактный телефон"
+            label={t('common.contactPhone')}
             name="contact_phone"
             value={formData.contact_phone}
             onChange={handleChange}
@@ -192,7 +194,7 @@ const AdvertisementForm = ({ onSubmit }) => {
           
           <Box>
             <Typography variant="subtitle1" gutterBottom>
-              Изображения (максимум 10)
+              {t('newAd.images')}
             </Typography>
             
             {imagePreviews.length > 0 && (
@@ -239,7 +241,7 @@ const AdvertisementForm = ({ onSubmit }) => {
             </Button>
             
             <Typography variant="caption" display="block" sx={{ mt: 1 }}>
-              {formData.images.length} / 10 изображений загружено
+              {formData.images.length} / 5 {t('newAd.images_loaded')}
             </Typography>
           </Box>
           
@@ -253,7 +255,7 @@ const AdvertisementForm = ({ onSubmit }) => {
             disabled={isSubmitting}
             sx={{ mt: 2 }}
           >
-            {isSubmitting ? 'Отправка...' : 'Опубликовать объявление'}
+            {isSubmitting ? 'Отправка...' : t('newAd.submit')}
           </MDButton>
         </Box>
       </form>

@@ -19,6 +19,7 @@ Coded by www.creative-tim.com
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import Icon from "@mui/material/Icon";
+import { Link } from "react-router-dom";
 
 export default function getModeratorStatsTableData(moderatorData) {
   // Формируем колонки на основе первого модератора
@@ -53,13 +54,32 @@ export default function getModeratorStatsTableData(moderatorData) {
   const getRows = () => {
     if (!moderatorData || moderatorData.length === 0) return [];
     
-    return moderatorData.map(moderator => {
+    return moderatorData.map((moderator, index) => {
+      const isLastRow = index === moderatorData.length - 1;
+      
       const row = {
         moderator: (
           <MDBox display="flex" alignItems="center" lineHeight={1}>
-            <MDTypography display="block" variant="button" fontWeight="medium" lineHeight={1}>
-              {moderator.moderator_name}
-            </MDTypography>
+            <Link 
+              to={`/moderator-stats/${moderator.moderator_id}`}
+              style={{ textDecoration: 'none' }}
+            >
+              <MDTypography 
+                display="block" 
+                variant="button" 
+                fontWeight={isLastRow ? "bold" : "medium"} 
+                color={isLastRow ? "info" : "dark"}
+                lineHeight={1}
+                sx={{ 
+                  cursor: 'pointer',
+                  '&:hover': {
+                    color: 'primary.main',
+                  }
+                }}
+              >
+                {moderator.moderator_name}
+              </MDTypography>
+            </Link>
           </MDBox>
         )
       };
@@ -68,7 +88,11 @@ export default function getModeratorStatsTableData(moderatorData) {
       moderator.city_stats.forEach(city => {
         if (city.city_id !== 0) {
           row[`city_${city.city_id}`] = (
-            <MDTypography variant="caption" color={city.ads_count > 0 ? "success" : "text"} fontWeight="medium">
+            <MDTypography 
+              variant="caption" 
+              color={isLastRow ? "info" : (city.ads_count > 0 ? "success" : "text")} 
+              fontWeight={isLastRow ? "bold" : "medium"}
+            >
               {city.ads_count}
             </MDTypography>
           );

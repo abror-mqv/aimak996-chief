@@ -1,0 +1,105 @@
+{
+  "sidebar": {
+    "analytics": "Аналитика",
+    "allAds": "Бардык жарыялар",
+    "myAds": "Менин жарыяларым",
+    "newAd": "Жаңы жарыя",
+    "moderators": "Модераторлор",
+    "newModerator": "Жаңы модератор",
+    "search": "Издөө",
+    "login": "Кирүү",
+    "moderatorAds": "Модератордун жарыялары",
+    "pushNotifications": "Push-билдирүүлөр"
+  },
+  "language": {
+    "ru": "Русский",
+    "ky": "Кыргызча"
+  },
+  "search": {
+    "title": "Жарыяларды издөө",
+    "placeholder": "Издөө үчүн текст жазыңыз...",
+    "minLength": "Издөөнүн минималдуу узундугу - 3 символ",
+    "noResults": "Натыйжа жок"
+  },
+  "filters": {
+    "selectCity": "Шаарды тандаңыз",
+    "allCities": "Бардык шаарлар",
+    "selectCategory": "Категорияны тандаңыз",
+    "allCategories": "Бардык категориялар",
+    "selected": "Тандалды",
+    "selectAll": "Баарын тандоо",
+    "deselectAll": "Баарын алып салуу"
+  },
+  "ad": {
+    "edit": "Жарыяны түзөтүү",
+    "delete": "Өчүрүү",
+    "save": "Сактоо",
+    "cancel": "Жокко чыгаруу",
+    "description": "Сүрөттөмө",
+    "phone": "Телефон",
+    "category": "Категория",
+    "cities": "Шаарлар",
+    "status": "Статус",
+    "date": "Күнү",
+    "updateSuccess": "Жарыя жаңыртылды! Баракты кайра жүктөңүз",
+    "deleteConfirmTitle": "Жарыя өчүрүү",
+    "deleteConfirmMessage": "Жарыя өчүрүүнү каалайсызбы?"
+  },
+  "auth": {
+    "yourName": "Сиздин атыңыз",
+    "yourPhone": "Сиздин номериңиз",
+    "anonymous": "Аноним",
+    "changeUser": "Колдонуучуну алмаштыруу",
+    "login": "Кирүү",
+    "password": "Сырсөз",
+    "hidePassword": "сырсөздү жашыруу",
+    "showPassword": "сырсөздү көрсөтүү",
+    "welcome": "Кош келиңиз!",
+    "loginSuccess": "Сиз ийгиликтүү кирдиңиз",
+    "continue": "Улантуу",
+    "moderatorRegistration": "Модератор катталуусу",
+    "register": "Катталуу",
+    "resetPassword": "Сырсөздү калыбына келтирүү",
+    "resetPasswordEmailInfo": "Сиз 60 секунддун ичинде кат аласыз",
+    "email": "Email",
+    "reset": "Калыбына келтирүү",
+    "logout": "Чыгуу"
+  },
+  "common": {
+    "text": "текст",
+    "allAdsInCity": "Шаардагы бардык жарыялар",
+    "selectCity": "Шаарды тандаңыз",
+    "allModerators": "Бардык модераторлор",
+    "confirmDeleteModerator": "Бул модераторду өчүрүүнү каалайсызбы?",
+    "deletingModeratorWithId": "ID менен модераторду өчүрүү",
+    "newModerator": "Жаңы модератор",
+    "moderatorCreated": "Модератор түзүлдү",
+    "error": "Ката",
+    "errorData": "Ката маалыматтары",
+    "errorStatus": "Ката статусу",
+    "contactPhone": "Чалуу номер",
+    "name": "Аты",
+    "addModerator": "Модераторду кошуу",
+    "city": "Шаар",
+    "cancel": "Жокко чыгаруу",
+    "delete": "Өчүрүү"
+  },
+  "newAd": {
+    "title": "Жаңы жарыя",
+    "city_select": "Шаарды тандаңыз",
+    "select_all": "Баарын тандоо",
+    "description": "Сүрөттөмө",
+    "images": "Сүрөттөр, максимум 5",
+    "images_loaded": "cурөттөр жүктөлгөн",
+    "submit": "Жарыяларды чыгаруу"
+  },
+  "dashboard": {
+    "title": "Модераторлордун анализ",
+    "subtitle": "Шаардын жарыяларынын саны",
+    "for_today": "Бүгүнкү",
+    "for_week": "Жуманын",
+    "for_month": "Айлык"
+
+    
+  }
+} 

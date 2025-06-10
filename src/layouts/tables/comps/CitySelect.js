@@ -5,8 +5,10 @@ import {
   ToggleButton,
   Typography
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const CitySelect = ({ cities, selectedCity, onCityChange }) => {
+  const { t } = useTranslation();
   const handleCityChange = (event, newCityId) => {
     if (newCityId !== null) {
       onCityChange(newCityId);
@@ -16,7 +18,7 @@ const CitySelect = ({ cities, selectedCity, onCityChange }) => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
       <Typography variant="subtitle1" sx={{ mr: 1 }}>
-        Город:
+        {t('common.city')}
       </Typography>
       <ToggleButtonGroup
         value={selectedCity}

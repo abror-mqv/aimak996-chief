@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Card,
@@ -11,19 +12,19 @@ import {
   IconButton,
   CircularProgress,
   Icon,
+  MobileStepper,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
-  Button,
-  MobileStepper
+  Button
 } from '@mui/material';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { styled } from '@mui/material/styles';
 import { BASE_URL } from 'constants/crud';
 import MDBadge from 'components/MDBadge';
-import axios from 'axios';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import axios from 'axios';
 
 const StyledCard = styled(Card)(({ theme }) => ({
   marginBottom: theme.spacing(3),
@@ -140,6 +141,7 @@ const ImageSlider = ({ images }) => {
 };
 
 const Feed = ({ ads, loading, onOpen, setCurrentAd }) => {
+  const { t } = useTranslation();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [selectedAdId, setSelectedAdId] = useState(null);
 
@@ -154,7 +156,7 @@ const Feed = ({ ads, loading, onOpen, setCurrentAd }) => {
   if (!ads || ads.length === 0) {
     return (
       <Typography variant="h6" align="center" sx={{ mt: 4 }}>
-        Объявлений не найдено
+        {t('search.noResults')}
       </Typography>
     );
   }
@@ -191,7 +193,7 @@ const Feed = ({ ads, loading, onOpen, setCurrentAd }) => {
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Grid container spacing={3}>
           {ads.map((ad) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={ad.id}>
+            <Grid item xs={12} sm={6} md={4} key={ad.id}>
               <StyledCard>
                 {ad.images && ad.images.length > 0 && (
                   <ImageSlider images={ad.images} />
@@ -218,22 +220,28 @@ const Feed = ({ ads, loading, onOpen, setCurrentAd }) => {
                   }}>
                     {ad.description}
                   </Typography>
-                  <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
-                    <MDBadge color="dark" onClick={() => {
-                      console.log(ad)
-                      handleSetCurrentAd(
-                        {
+                  <Box sx={{ display: 'flex', gap: 1 }}>
+                    <MDBadge 
+                      color="dark" 
+                      onClick={() => {
+                        console.log(ad)
+                        handleSetCurrentAd({
                           id: ad.id,
                           description: ad.description,
                           contact_phone: ad.contact_phone,
                           category_id: ad.category_id,
                           city_ids: ad.cities_ids
-                        }
-                      )
-                    }}>
+                        })
+                      }}
+                      title={t('ad.edit')}
+                    >
                       <Icon>edit</Icon>
                     </MDBadge>
-                    <MDBadge color="error" onClick={() => handleDeleteClick(ad.id)}>
+                    <MDBadge 
+                      color="error" 
+                      onClick={() => handleDeleteClick(ad.id)}
+                      title={t('ad.delete')}
+                    >
                       <Icon>delete</Icon>
                     </MDBadge>
                   </Box>
@@ -248,22 +256,22 @@ const Feed = ({ ads, loading, onOpen, setCurrentAd }) => {
         open={deleteDialogOpen}
         onClose={() => setDeleteDialogOpen(false)}
       >
-        <DialogTitle>Подтверждение удаления</DialogTitle>
+        <DialogTitle>{t('ad.deleteConfirmTitle')}</DialogTitle>
         <DialogContent>
           <Typography>
-            Вы действительно хотите удалить это объявление?
+            {t('ad.deleteConfirmMessage')}
           </Typography>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setDeleteDialogOpen(false)}>
-            Отмена
+            {t('common.cancel')}
           </Button>
           <Button 
             onClick={handleDeleteConfirm} 
             color="error" 
             variant="contained"
           >
-            Удалить
+            {t('common.delete')}
           </Button>
         </DialogActions>
       </Dialog>
@@ -271,4 +279,4 @@ const Feed = ({ ads, loading, onOpen, setCurrentAd }) => {
   );
 };
 
-export default Feed;
+export default Feed; 

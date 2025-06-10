@@ -1,19 +1,5 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 // react-router-dom components
 import { useLocation, NavLink } from "react-router-dom";
@@ -26,6 +12,8 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -47,7 +35,12 @@ import {
   setWhiteSidenav,
 } from "context";
 
+// @mui icons
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
+  const { i18n, t } = useTranslation();
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentSidenav, whiteSidenav, darkMode, sidenavColor } = controller;
   const location = useLocation();
@@ -62,26 +55,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   }
 
   const closeSidenav = () => setMiniSidenav(dispatch, true);
-
-  // useEffect(() => {
-  //   // A function that sets the mini state of the sidenav.
-  //   function handleMiniSidenav() {
-  //     setMiniSidenav(dispatch, window.innerWidth < 1200);
-  //     setTransparentSidenav(dispatch, window.innerWidth < 1200 ? false : transparentSidenav);
-  //     setWhiteSidenav(dispatch, window.innerWidth < 1200 ? false : whiteSidenav);
-  //   }
-
-  //   /** 
-  //    The event listener that's calling the handleMiniSidenav function when resizing the window.
-  //   */
-  //   window.addEventListener("resize", handleMiniSidenav);
-
-  //   // Call the handleMiniSidenav function to set the state with the initial value.
-  //   handleMiniSidenav();
-
-  //   // Remove event listener on cleanup
-  //   return () => window.removeEventListener("resize", handleMiniSidenav);
-  // }, [dispatch, location]);
 
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
   const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, href, route }) => {
@@ -179,7 +152,53 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         }
       />
       <List>{renderRoutes}</List>
-     
+      
+      <MDBox
+        sx={{
+          position: 'absolute',
+          bottom: '20px',
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          px: 2
+        }}
+      >
+        <ButtonGroup 
+          variant="contained" 
+          size="small"
+          sx={{
+            backgroundColor: 'transparent',
+            '& .MuiButtonGroup-grouped': {
+              borderColor: transparentSidenav || whiteSidenav ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.12)'
+            }
+          }}
+        >
+          <Button
+            onClick={() => i18n.changeLanguage('ru')}
+            sx={{ 
+              color: "#ffffff",
+              backgroundColor: i18n.language === 'ru' ? 'primary.main' : 'secondary.main',
+              '&:hover': {
+                backgroundColor: i18n.language === 'ru' ? 'primary.dark' : 'rgba(255,255,255,0.08)'
+              }
+            }}
+          >
+            {t('language.ru')}
+          </Button>
+          <Button
+            onClick={() => i18n.changeLanguage('ky')}
+            sx={{
+              color: "#ffffff",
+              backgroundColor: i18n.language === 'ky' ? 'primary.main' :  'secondary.main',
+              '&:hover': {
+                backgroundColor: i18n.language === 'ky' ? 'primary.dark' : 'rgba(255,255,255,0.08)'
+              }
+            }}
+          >
+            {t('language.ky')}
+          </Button>
+        </ButtonGroup>
+      </MDBox>
     </SidenavRoot>
   );
 }

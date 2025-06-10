@@ -8,6 +8,7 @@ import {
 
 import "./AdForm.scss"
 import MDButton from 'components/MDButton';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -47,7 +48,7 @@ const AdvertisementForm = ({ onSubmit }) => {
     }
   };
 
-
+  const { t } = useTranslation();
     
   return (
     <div className='NewAdForm'>
@@ -55,7 +56,7 @@ const AdvertisementForm = ({ onSubmit }) => {
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
          
           <TextField
-            label="Контактный телефон"
+            label={t('common.contactPhone')}
             name="contact_phone"
             value={phone}
             type='tel'
@@ -65,7 +66,7 @@ const AdvertisementForm = ({ onSubmit }) => {
             placeholder="996123456789"
           />
           <TextField
-            label="Имя"
+            label={t('common.name')}
             name="name"
             value={fullName}
             onChange={(e)=>setFullName(e.target.value)}
@@ -94,7 +95,7 @@ const AdvertisementForm = ({ onSubmit }) => {
             disabled={isSubmitting}
             sx={{ mt: 2 }}
           >
-            {isSubmitting ? 'Отправка...' : 'Добавить модератора'}
+            {isSubmitting ? 'Отправка...' : t('common.addModerator')}
           </MDButton>
         </Box>
       </form>

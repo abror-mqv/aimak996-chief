@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Typography,
@@ -12,6 +13,8 @@ import {
 } from '@mui/material';
 
 const MultiCitySelect = ({ cities, selectedCities, onCitiesChange, columns = 3 }) => {
+  const { t } = useTranslation();
+  
   // Разбиваем города на колонки
   const citiesPerColumn = Math.ceil(cities.length / columns);
   const cityColumns = Array.from({ length: columns }, (_, i) =>
@@ -33,11 +36,11 @@ const MultiCitySelect = ({ cities, selectedCities, onCitiesChange, columns = 3 }
     <Paper elevation={0} sx={{ p: 2, border: '1px solid #e0e0e0', borderRadius: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
         <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-          Выберите города
+          {t('filters.selectCity')}
         </Typography>
         {selectedCities.length > 0 && (
           <Typography variant="caption" color="text.secondary">
-            Выбрано: {selectedCities.length}
+            {t('filters.selected')}: {selectedCities.length}
           </Typography>
         )}
       </Box>
@@ -47,7 +50,7 @@ const MultiCitySelect = ({ cities, selectedCities, onCitiesChange, columns = 3 }
         onClick={handleSelectAll}
         sx={{ textTransform: 'none', mb: 1 }}
       >
-        {selectedCities.length === cities.length ? 'Снять все' : 'Выбрать все'}
+        {selectedCities.length === cities.length ? t('filters.deselectAll') : t('filters.selectAll')}
       </Button>
 
       <Divider sx={{ my: 1 }} />
