@@ -5,6 +5,7 @@ import SignIn from "layouts/authentication/sign-in";
 import { useTranslation } from 'react-i18next';
 import PushNotifications from "layouts/push-notifications";
 import ModeratorStats from "layouts/moderator-stats";
+import AnnouncementPublish from "layouts/AnnouncementPublish";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -25,6 +26,14 @@ const Routes = () => {
       icon: <Icon fontSize="small">dashboard</Icon>,
       route: "/dashboard",
       component: <Dashboard />,
+    },
+    {
+      type: "collapse",
+      name: "Публикация сообщения",
+      key: "announcement-publish",
+      icon: <Icon fontSize="small">campaign</Icon>,
+      route: "/announcement-publish",
+      component: <AnnouncementPublish />,
     },
     {
       type: "collapse",

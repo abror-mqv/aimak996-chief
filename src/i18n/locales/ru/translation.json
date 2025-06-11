@@ -9,7 +9,8 @@
     "search": "Поиск",
     "login": "Войти",
     "moderatorAds": "Публикации модератора",
-    "pushNotifications": "Push-уведомления"
+    "pushNotifications": "Push-уведомления",
+    "announcementPublish": "Публикация сообщения"
   },
   "language": {
     "ru": "Русский",
@@ -98,5 +99,28 @@
     "for_today": "За сегодня",
     "for_week": "За неделю",
     "for_month": "За месяц"
+  },
+  "announcement": {
+    "title": "Публикация сообщения",
+    "messageLabel": "Текст сообщения",
+    "messagePreview": "Предпросмотр на мобильном устройстве",
+    "messagePlaceholder": "Предпросмотр сообщения",
+    "durationLabel": "Срок активности: {days} дней",
+    "publish": "Опубликовать",
+    "publishing": "Публикация...",
+    "history": "История сообщений",
+    "active": "Активно",
+    "completed": "Завершено",
+    "deactivate": "Д",
+    "period": "Период активности",
+    "created": "Создано",
+    "error": {
+      "maxLength": "Сообщение не должно превышать 100 символов",
+      "noCities": "Выберите хотя бы один город",
+      "invalidDuration": "Срок активности должен быть от 1 до 14 дней",
+      "loadCities": "Ошибка при загрузке списка городов",
+      "loadHistory": "Ошибка при загрузке истории сообщений",
+      "deactivate": "Произошла ошибка при деактивации сообщения"
+    }
   }
 } 
