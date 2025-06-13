@@ -10,7 +10,7 @@
     "login": "Войти",
     "moderatorAds": "Публикации модератора",
     "pushNotifications": "Push-уведомления",
-    "announcementPublish": "Публикация сообщения"
+    "announcementPublish": "Публикация закрепа"
   },
   "language": {
     "ru": "Русский",
@@ -23,8 +23,8 @@
     "noResults": "Нет результатов"
   },
   "filters": {
-    "selectCity": "Выберите город",
-    "allCities": "Все города",
+    "selectCity": "Выберите район",
+    "allCities": "Все районы",
     "selectCategory": "Выберите категорию",
     "allCategories": "Все категории",
     "selected": "Выбрано",
@@ -39,7 +39,7 @@
     "description": "Описание",
     "phone": "Телефон",
     "category": "Категория",
-    "cities": "Города",
+    "cities": "Районы",
     "status": "Статус",
     "date": "Дата",
     "updateSuccess": "Объявление обновлено! Перезагрузите страницу",
@@ -68,8 +68,8 @@
   },
   "common": {
     "text": "текст",
-    "allAdsInCity": "Все объявления по городу",
-    "selectCity": "Выберите город",
+    "allAdsInCity": "Все объявления по району",
+    "selectCity": "Выберите район",
     "allModerators": "Все модераторы",
     "confirmDeleteModerator": "Вы уверены, что хотите удалить этого модератора?",
     "deletingModeratorWithId": "Удалить модератора с ID",
@@ -81,21 +81,21 @@
     "contactPhone": "Контактный телефон",
     "name": "Имя",
     "addModerator": "Добавить модератора",
-    "city": "Город",
+    "city": "Район",
     "cancel": "Отмена"
   },
   "newAd": {
     "title": "Новое объявление",
-    "city_select": "Выберите город",
+    "city_select": "Выберите район",
     "select_all": "Выбрать все",
     "description": "Описание",
-    "images": "Изображения (максимум 5)",
+    "images": "Изображения (максимум 10)",
     "images_loaded": "изображений загружено",
     "submit": "Опубликовать объявление"
   },
   "dashboard": {
     "title": "Аналитика модераторов",
-    "subtitle": "Количество обработанных публикаций по городам",
+    "subtitle": "Количество обработанных публикаций по районам",
     "for_today": "За сегодня",
     "for_week": "За неделю",
     "for_month": "За месяц"
@@ -121,6 +121,18 @@
       "loadCities": "Ошибка при загрузке списка городов",
       "loadHistory": "Ошибка при загрузке истории сообщений",
       "deactivate": "Произошла ошибка при деактивации сообщения"
+    }
+  },
+  "pushNotifications": {
+    "title": "Push-уведомления",
+    "messageLabel": "Текст уведомления",
+    "messagePlaceholder": "Введите текст push-уведомления...",
+    "sendButton": "Отправить уведомление",
+    "history": "История уведомлений",
+    "table": {
+      "date": "Дата",
+      "message": "Сообщение",
+      "cities": "Районы"
     }
   }
 } 

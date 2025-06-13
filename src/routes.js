@@ -29,7 +29,7 @@ const Routes = () => {
     },
     {
       type: "collapse",
-      name: "Публикация сообщения",
+      name: t('sidebar.announcementPublish'),
       key: "announcement-publish",
       icon: <Icon fontSize="small">campaign</Icon>,
       route: "/announcement-publish",

@@ -15,8 +15,10 @@ import DataTable from "examples/Tables/DataTable";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from 'components/MDButton';
+import { useTranslation } from 'react-i18next';
 
 const PushNotifications = () => {
+  const { t } = useTranslation();
   const [message, setMessage] = useState('');
   const [selectedCities, setSelectedCities] = useState([]);
   const [history, setHistory] = useState([]);
@@ -57,9 +59,9 @@ const PushNotifications = () => {
 
   const tableData = {
     columns: [
-      { Header: "Дата", accessor: "date", width: "20%" },
-      { Header: "Сообщение", accessor: "message", width: "50%" },
-      { Header: "Города", accessor: "cities", width: "30%" },
+      { Header: t('pushNotifications.table.date'), accessor: "date", width: "20%" },
+      { Header: t('pushNotifications.table.message'), accessor: "message", width: "50%" },
+      { Header: t('pushNotifications.table.cities'), accessor: "cities", width: "30%" },
     ],
     rows: history.map(notification => ({
       date: (
@@ -87,7 +89,7 @@ const PushNotifications = () => {
     <DashboardLayout>
       <Box sx={{ p: 3, pt: 4 }}>
         <Typography variant="h4" gutterBottom>
-          Push-уведомления
+          {t('pushNotifications.title')}
         </Typography>
 
         <Card sx={{ mb: 4, mt: 4 }}>
@@ -98,8 +100,8 @@ const PushNotifications = () => {
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              label="Текст уведомления"
-              placeholder="Введите текст push-уведомления..."
+              label={t('pushNotifications.messageLabel')}
+              placeholder={t('pushNotifications.messagePlaceholder')}
               sx={{ mb: 3 }}
             />
 
@@ -117,7 +119,7 @@ const PushNotifications = () => {
               disabled={!message || selectedCities.length === 0}
               sx={{ mt: 4, color: 'white' }}
             >
-              Отправить уведомление
+              {t('pushNotifications.sendButton')}
             </MDButton>
           </CardContent>
         </Card>
@@ -126,7 +128,7 @@ const PushNotifications = () => {
           <Card>
             <MDBox p={3}>
               <MDTypography variant="h6" fontWeight="medium">
-                История уведомлений
+                {t('pushNotifications.history')}
               </MDTypography>
             </MDBox>
             <DataTable

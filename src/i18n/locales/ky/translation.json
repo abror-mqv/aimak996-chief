@@ -9,7 +9,8 @@
     "search": "Издөө",
     "login": "Кирүү",
     "moderatorAds": "Модератордун жарыялары",
-    "pushNotifications": "Push-билдирүүлөр"
+    "pushNotifications": "Push-билдирүүлөр",
+    "announcementPublish": "Закреп чыгаруу"
   },
   "language": {
     "ru": "Русский",
@@ -22,12 +23,12 @@
     "noResults": "Натыйжа жок"
   },
   "filters": {
-    "selectCity": "Шаарды тандаңыз",
-    "allCities": "Бардык шаарлар",
+    "selectCity": "Районду тандаңыз",
+    "allCities": "Бардык райондор",
     "selectCategory": "Категорияны тандаңыз",
     "allCategories": "Бардык категориялар",
     "selected": "Тандалды",
-    "selectAll": "Баарын тандоо",
+    "selectAll": "Баарын тандау",
     "deselectAll": "Баарын алып салуу"
   },
   "ad": {
@@ -38,7 +39,7 @@
     "description": "Сүрөттөмө",
     "phone": "Телефон",
     "category": "Категория",
-    "cities": "Шаарлар",
+    "cities": "Райондор",
     "status": "Статус",
     "date": "Күнү",
     "updateSuccess": "Жарыя жаңыртылды! Баракты кайра жүктөңүз",
@@ -67,8 +68,8 @@
   },
   "common": {
     "text": "текст",
-    "allAdsInCity": "Шаардагы бардык жарыялар",
-    "selectCity": "Шаарды тандаңыз",
+    "allAdsInCity": "Район боюнча бардык жарыялар",
+    "selectCity": "Районду тандаңыз",
     "allModerators": "Бардык модераторлор",
     "confirmDeleteModerator": "Бул модераторду өчүрүүнү каалайсызбы?",
     "deletingModeratorWithId": "ID менен модераторду өчүрүү",
@@ -80,26 +81,59 @@
     "contactPhone": "Чалуу номер",
     "name": "Аты",
     "addModerator": "Модераторду кошуу",
-    "city": "Шаар",
+    "city": "Район",
     "cancel": "Жокко чыгаруу",
     "delete": "Өчүрүү"
   },
   "newAd": {
     "title": "Жаңы жарыя",
-    "city_select": "Шаарды тандаңыз",
+    "city_select": "Районду тандаңыз",
     "select_all": "Баарын тандоо",
     "description": "Сүрөттөмө",
-    "images": "Сүрөттөр, максимум 5",
+    "images": "Сүрөттөр, максимум 10",
     "images_loaded": "cурөттөр жүктөлгөн",
     "submit": "Жарыяларды чыгаруу"
   },
   "dashboard": {
     "title": "Модераторлордун анализ",
-    "subtitle": "Шаардын жарыяларынын саны",
-    "for_today": "Бүгүнкү",
-    "for_week": "Жуманын",
-    "for_month": "Айлык"
-
-    
+    "subtitle": "Райондор боюнча жарыялардын саны",
+    "for_today": "Бүгүн",
+    "for_week": "Бир жума",
+    "for_month": "Бир ай"    
+  },
+  "announcement": {
+    "title": "Жарыяларды чыгаруу",
+    "messageLabel": "Жарыя текст",
+    "messagePreview": "Жарыя текст",
+    "messagePlaceholder": "Жарыя текст",
+    "durationLabel": "Активдүүлүк периоды: {days} күн",
+    "publish": "Чыгаруу",
+    "publishing": "Чыгаруу...",
+    "history": "Жарыялар",
+    "active": "Активдүү",
+    "completed": "Аяктады",
+    "deactivate": "Д",
+    "period": "Активдүүлүк периоды",
+    "created": "Түзүлгөн",
+    "error": {
+      "maxLength": "Жарыя текст 100 символдон ашпайт",
+      "noCities": "Шаарды тандаңыз",
+      "invalidDuration": "Активдүүлүк периоды 1 күннен 14 күнгө чейин болушу керек",
+      "loadCities": "Шаардын түзүлгөн санын жүктөөдөгөнде ката",
+      "loadHistory": "Жарыялар түзүлгөн санын жүктөөдөгөнде ката",
+      "deactivate": "Жарыя тексттүү ката"
+    }
+  },
+  "pushNotifications": {
+    "title": "Push-билдирүүлөр",
+    "messageLabel": "Билдирүү тексти",
+    "messagePlaceholder": "Push-билдирүү текстин киргизиңиз...",
+    "sendButton": "Билдирүү жөнөтүү",
+    "history": "Билдирүүлөр тарыхы",
+    "table": {
+      "date": "Дата",
+      "message": "Билдирүү",
+      "cities": "Райондор"
+    }
   }
 } 

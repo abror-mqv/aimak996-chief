@@ -241,7 +241,7 @@ const AdvertisementForm = ({ onSubmit }) => {
             </Button>
             
             <Typography variant="caption" display="block" sx={{ mt: 1 }}>
-              {formData.images.length} / 5 {t('newAd.images_loaded')}
+              {formData.images.length} / 10 {t('newAd.images_loaded')}
             </Typography>
           </Box>
           
