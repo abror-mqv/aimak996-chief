@@ -247,7 +247,7 @@ const AnnouncementPublish = () => {
       sx={{
         width: '100%',
         maxWidth: '375px',
-        height: '84px',
+        height: '56px',
         borderRadius: '15px',
         border: '2px solid #104391',
         backgroundColor: 'rgba(122, 183, 236, 0.15)',
@@ -277,7 +277,7 @@ const AnnouncementPublish = () => {
       >
         {text || t('announcement.messagePlaceholder')}
       </Typography>
-      <CloseIcon sx={{ color: '#104391', width: 30, height: 30, flexShrink: 0, mt: 3.2 }} />
+      <CloseIcon sx={{ color: '#104391', width: 30, height: 30, flexShrink: 0, mt: 1.2 }} />
     </Box>
   );
 
@@ -303,8 +303,8 @@ const AnnouncementPublish = () => {
                     fullWidth
                     label={t('announcement.messageLabel')}
                     multiline
-                    rows={2}
-                    maxRows={2}
+                    rows={1}
+                    maxRows={1}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     helperText={`${message.length}/100 ${t('common.text')}`}

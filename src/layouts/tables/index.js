@@ -32,7 +32,7 @@ function Tables() {
 
   useEffect(()=>{
     setLoading(true)
-    axios.get(`${BASE_URL}/ads/city/${selectedCity}/category/${selectedCategory}`).then(res=>{
+    axios.get(`${BASE_URL}/ads/city/${selectedCity}/category/${selectedCategory}/`).then(res=>{
       console.log(res.data)
       setAds(res.data)
       setLoading(false)
