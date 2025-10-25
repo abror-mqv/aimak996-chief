@@ -1,5 +1,6 @@
-export const BASE_URL = "http://5.59.233.32:8080"
+export const BASE_URL = "http://176.126.164.86:8000"
 // export const BASE_URL = "http://127.0.0.1:8000"
+
 
 
 export const POST_REGISTER = `${BASE_URL}/users/register/`
@@ -24,4 +25,14 @@ export const GET_STATS_DAY = `${BASE_URL}/users/admin/stats/today/`
 export const EDIT_AD =  `${BASE_URL}/ads/edit`
 
 export const GET_MODERATOR_ADS = `${BASE_URL}/ads/by_moderator/`
+
+// Tinder AI training endpoints
+export const GET_TINDER_NEXT = `${BASE_URL}/ai/tinder/next/`
+export const POST_TINDER_LABEL = `${BASE_URL}/ai/tinder/confirm/`
+
+// Local model prediction service
+// export const PREDICT_BASE_URL = "http://127.0.0.1:8002"
+export const PREDICT_BASE_URL = "http://176.126.164.86:8002"
+
+export const POST_PREDICT = `${PREDICT_BASE_URL}/predict`
 

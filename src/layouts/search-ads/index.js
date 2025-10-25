@@ -37,7 +37,7 @@ function SearchAds() {
 
     const queryString = searchParams.toString();
     
-    axios.get(`${BASE_URL}/ads/my-ads/${selectedCity}/${selectedCategory}${queryString ? `?${queryString}` : ''}`, {
+    axios.get(`${BASE_URL}/ads/my-ads/${selectedCity}/${selectedCategory}/${queryString ? `?${queryString}` : ''}`, {
       headers: {
         Authorization: `Token ${token}`
       }
