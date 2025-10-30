@@ -35,4 +35,6 @@ export const POST_TINDER_LABEL = `${BASE_URL}/ai/tinder/confirm/`
 export const PREDICT_BASE_URL = "http://176.126.164.86:8002"
 
 export const POST_PREDICT = `${PREDICT_BASE_URL}/predict`
+export const EDIT_CITY = `${BASE_URL}/ads/update-city-info/`
+
 

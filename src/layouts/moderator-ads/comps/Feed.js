@@ -174,7 +174,7 @@ const Feed = ({ ads, loading, onOpen, setCurrentAd }) => {
   const handleDeleteConfirm = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      await axios.delete(`${BASE_URL}/ads/delete/${selectedAdId}`, {
+      await axios.delete(`${BASE_URL}/ads/delete/${selectedAdId}/`, {
         headers: {
           Authorization: `Token ${token}`
         }

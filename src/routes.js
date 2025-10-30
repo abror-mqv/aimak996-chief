@@ -15,6 +15,7 @@ import MyAds from "layouts/myads";
 import ModeratorAds from "layouts/moderator-ads";
 import SearchAds from "layouts/search-ads";
 import Tinder from "layouts/tinder";
+import Cities from "layouts/cities";
 const Routes = () => {
   const { t } = useTranslation();
 
@@ -112,6 +113,14 @@ const Routes = () => {
       key: "moderator-stats",
       route: "/moderator-stats/:moderatorId",
       component: <ModeratorStats />,
+    },
+    {
+      type: "collapse",
+      name: "Города",
+      key: "cities",
+      icon: <Icon fontSize="small">apartment</Icon>,
+      route: "/cities",
+      component: <Cities />,
     },
     {
       type: "collapse",
