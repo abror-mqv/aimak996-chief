@@ -132,6 +132,7 @@ const getRoutes = (allRoutes) =>
       {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routes)}
+        
         <Route
           path="*"
           element={
