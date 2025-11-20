@@ -16,6 +16,10 @@ import ModeratorAds from "layouts/moderator-ads";
 import SearchAds from "layouts/search-ads";
 import Tinder from "layouts/tinder";
 import Cities from "layouts/cities";
+import BusinessCategories from "layouts/business/Categories";
+import BusinessCards from "layouts/business/Cards";
+import BusinessCardEdit from "layouts/business/CardEdit";
+import BusinessCardCreate from "layouts/business/CardCreate";
 const Routes = () => {
   const { t } = useTranslation();
 
@@ -129,7 +133,45 @@ const Routes = () => {
       icon: <Icon fontSize="small">smart_toy</Icon>,
       route: "/tinder",
       component: <Tinder />,
-    }
+    },
+    {
+      type: "collapse",
+      name: "Бизнес",
+      key: "business",
+      icon: <Icon fontSize="small">business_center</Icon>,
+      collapse: [
+        {
+          type: "collapse",
+          name: "категории",
+          key: "business-categories",
+          icon: <Icon fontSize="small">category</Icon>,
+          route: "/business/categories",
+          component: <BusinessCategories />,
+        },
+        {
+          type: "collapse",
+          name: "карточки",
+          key: "business-cards",
+          icon: <Icon fontSize="small">credit_card</Icon>,
+          route: "/business/cards",
+          component: <BusinessCards />,
+        },
+      ],
+    },
+    {
+      type: "hidden",
+      name: "Редактировать карточку",
+      key: "business-card-edit",
+      route: "/business/cards/:pk/edit",
+      component: <BusinessCardEdit />,
+    },
+    {
+      type: "hidden",
+      name: "Создать карточку",
+      key: "business-card-create",
+      route: "/business/cards/create",
+      component: <BusinessCardCreate />,
+    },
   ];
 
   return routes;
