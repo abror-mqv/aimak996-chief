@@ -181,7 +181,6 @@ const Feed = ({ ads, loading, setCurrentAd, onOpen }) => {
       });
       setDeleteDialogOpen(false);
       // Перезагрузить страницу для обновления списка
-      window.location.reload();
     } catch (error) {
       console.error('Error deleting ad:', error);
       alert('Ошибка при удалении объявления');

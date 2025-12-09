@@ -25,6 +25,8 @@ export const GET_STATS_DAY = `${BASE_URL}/users/admin/stats/today/`
 export const EDIT_AD =  `${BASE_URL}/ads/edit`
 
 export const GET_MODERATOR_ADS = `${BASE_URL}/ads/by_moderator/`
+export const GET_UNPAID_ADS = `${BASE_URL}/ads/admin/unpaid-ads/`
+export const POST_MARK_PAID = `${BASE_URL}/ads/admin/mark-paid/`
 
 // Tinder AI training endpoints
 export const GET_TINDER_NEXT = `${BASE_URL}/ai/tinder/next/`

@@ -20,6 +20,7 @@ import BusinessCategories from "layouts/business/Categories";
 import BusinessCards from "layouts/business/Cards";
 import BusinessCardEdit from "layouts/business/CardEdit";
 import BusinessCardCreate from "layouts/business/CardCreate";
+import UnpaidAds from "layouts/unpaid-ads";
 const Routes = () => {
   const { t } = useTranslation();
 
@@ -55,6 +56,14 @@ const Routes = () => {
       icon: <Icon fontSize="small">table_view</Icon>,
       route: "/tables",
       component: <Tables />,
+    },
+    {
+      type: "collapse",
+      name: "Неоплаченные объявления",
+      key: "unpaid-ads",
+      icon: <Icon fontSize="small">credit_card_off</Icon>,
+      route: "/unpaid-ads",
+      component: <UnpaidAds />,
     },
     {
       type: "collapse",
